@@ -4,7 +4,7 @@
 # and match with available recipes that can be made.
 
 # Takes ingredients input file.
-
+import pickle
 ingredients = []
 recipes = {}
 
@@ -13,6 +13,7 @@ def main():
     for line in ingredients_file:
         line = line.rstrip('\n')
         ingredients.append(line)
+    
 
     selection = 0
     while selection != '6':
@@ -40,8 +41,9 @@ def main():
     ingredients_file = open('ingredients.txt', 'w')
     for item in ingredients:
         ingredients_file.write(item + '\n')
+    ingredients_file.close()
     
-    #save dictionary to file with pickel and load it back in
+    #save dictionary to file with pickle and load it back in
 
 
 
@@ -61,5 +63,12 @@ def options():
     return selection
 
 
+input_recipes_file = open('recipes.dat', 'rb')
+recipes = pickle.load(input_recipes_file)
 
 main()
+
+recipes_file = open('recipes.dat', 'wb')
+pickle.dump(recipes, recipes_file)
+recipes_file.close()
+
