@@ -1,4 +1,8 @@
 bread
 oil
 potatoes
-jelly
+peanutbutter
+macaroni
+milk
+butter
+cheese

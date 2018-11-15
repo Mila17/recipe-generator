@@ -7,6 +7,7 @@
 import pickle
 ingredients = []
 recipes = {}
+availablerecipeslist = []
 
 def main():
     ingredients_file = open('ingredients.txt', 'r')
@@ -19,7 +20,7 @@ def main():
     while selection != '7':
         selection = options()
         if selection == '1':
-            print("This is what you have:", ingredients)
+            print("\nThis is what you have:", ingredients)
         elif selection == '2':
             #append to the list and at bottom of program save to ingredients.txt
             ingredient = input("Add ingredient: ")
@@ -38,7 +39,17 @@ def main():
         elif selection =='6':
             to_delete = input("Recipe to delete: ")
             del recipes[to_delete]
-            
+        elif selection == 'A':
+            list_to_set = set(ingredients)
+            # NEED TO CHANGE - should not be matching a recipe (key)
+            # if only 1 list items matches needs to match ONLY
+            # when all list items match the key's list items
+            for key, value in recipes.items():
+                if value[0] in list_to_set:
+                    availablerecipeslist.append(key)
+                    print("\nMatch:", key, value)
+                    available_recipes = open('availablerecipes.txt', 'w')
+                    available_recipes.writelines(availablerecipeslist)        
             
     
     ingredients_file = open('ingredients.txt', 'w')
@@ -46,15 +57,13 @@ def main():
         ingredients_file.write(item + '\n')
     ingredients_file.close()
     
-    #save dictionary to file with pickle and load it back in
-
-
-
-
 
 
     
 def options():
+    print("\nCookbook")
+    print("---------")
+    print("A) See available recipes")
     print("\nOptions")
     print("1) Show ingredients")
     print("2) Add an ingredient")
@@ -66,6 +75,8 @@ def options():
     selection = input("Your choice: ")
     return selection
 
+
+#Pickling
 
 input_recipes_file = open('recipes.dat', 'rb')
 recipes = pickle.load(input_recipes_file)
