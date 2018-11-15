@@ -16,7 +16,7 @@ def main():
     
 
     selection = 0
-    while selection != '6':
+    while selection != '7':
         selection = options()
         if selection == '1':
             print("This is what you have:", ingredients)
@@ -35,6 +35,9 @@ def main():
             recipes[recipe_name] = recipe_list
         elif selection == '5':
             print(recipes)
+        elif selection =='6':
+            to_delete = input("Recipe to delete: ")
+            del recipes[to_delete]
             
             
     
@@ -54,11 +57,12 @@ def main():
 def options():
     print("\nOptions")
     print("1) Show ingredients")
-    print("2) Add ingredients")
-    print("3) Delete ingredients")
+    print("2) Add an ingredient")
+    print("3) Delete an ingredient")
     print("4) Add a recipe")
     print("5) See recipes")
-    print("6) Quit")
+    print("6) Delete a recipe")
+    print("7) Quit")
     selection = input("Your choice: ")
     return selection
 

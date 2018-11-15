@@ -1,3 +1,4 @@
-pomegranates
-eggs
 bread
+oil
+potatoes
+jelly
