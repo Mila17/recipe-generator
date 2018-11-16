@@ -44,8 +44,10 @@ def main():
             # NEED TO CHANGE - should not be matching a recipe (key)
             # if only 1 list items matches needs to match ONLY
             # when all list items match the key's list items
+            # or set recipe ingredients as flags that need to be satisfied
             for key, value in recipes.items():
-                if value[0] in list_to_set:
+                # how to reference all values set
+                if value[1] in list_to_set:
                     availablerecipeslist.append(key)
                     print("\nMatch:", key, value)
                     available_recipes = open('availablerecipes.txt', 'w')
@@ -61,8 +63,22 @@ def main():
 
     
 def options():
-    print("\nCookbook")
-    print("---------")
+    print("\n       Cookbook")
+    print("       --------\n")
+    print("""\
+       .--,--.
+       `.  ,.'
+        |___|
+        :o o:   O   
+       _`~^~'_  |    
+     /'   ^   `\=)
+   .'  _______ '~|
+   `(<=|     |= /'
+       |     |
+       |_____|
+~~~~~~~ ===== ~~~~~~~~
+
+                    """)
     print("A) See available recipes")
     print("\nOptions")
     print("1) Show ingredients")

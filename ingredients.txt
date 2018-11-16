@@ -1,8 +1,6 @@
 bread
 oil
-potatoes
 peanutbutter
 macaroni
 milk
 butter
-cheese
