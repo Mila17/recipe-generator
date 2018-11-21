@@ -2,5 +2,6 @@ bread
 oil
 peanutbutter
 macaroni
-milk
 butter
+jelly
+cheese

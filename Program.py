@@ -40,28 +40,22 @@ def main():
             to_delete = input("Recipe to delete: ")
             del recipes[to_delete]
         elif selection == 'A':
-            list_to_set = set(ingredients)
-            # NEED TO CHANGE - should not be matching a recipe (key)
-            # if only 1 list items matches needs to match ONLY
-            # when all list items match the key's list items
-            # or set recipe ingredients as flags that need to be satisfied
             for key, value in recipes.items():
-                # how to reference all values set
-                if value[1] in list_to_set:
-                    availablerecipeslist.append(key)
-                    print("\nMatch:", key, value)
-                    available_recipes = open('availablerecipes.txt', 'w')
-                    available_recipes.writelines(availablerecipeslist)        
+                numbaofitems = len(value)
+                set2 = set(ingredients)
+                set1 = set(value)
+                set3 = set1.intersection(set2)
+                numbaofitems2 = len(set3)
+                if numbaofitems2 == numbaofitems:
+                    print("\n"+key, set3)      
             
     
     ingredients_file = open('ingredients.txt', 'w')
     for item in ingredients:
         ingredients_file.write(item + '\n')
     ingredients_file.close()
-    
 
-
-    
+       
 def options():
     print("\n       Cookbook")
     print("       --------\n")
