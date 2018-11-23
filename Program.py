@@ -47,13 +47,19 @@ def main():
                 set3 = set1.intersection(set2)
                 numbaofitems2 = len(set3)
                 if numbaofitems2 == numbaofitems:
-                    print("\n"+key, set3)      
+                    print("\n"+key, set3)
+                    availablerecipeslist.append(key)
             
     
     ingredients_file = open('ingredients.txt', 'w')
     for item in ingredients:
         ingredients_file.write(item + '\n')
     ingredients_file.close()
+
+    availablerecipesfile = open('availablerecipes.txt', 'w')
+    for item in availablerecipeslist:
+        availablerecipesfile.write(item + '\n')
+    availablerecipesfile.close()
 
        
 def options():

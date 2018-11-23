@@ -1,7 +1,12 @@
 bread
 oil
-peanutbutter
 macaroni
-butter
-jelly
+milk
 cheese
+jelly
+butter
+peanutbutter
+tomatoes
+salt
+pepper
+mayo
